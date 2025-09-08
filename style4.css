@@ -1,0 +1,202 @@
+/* Fondo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('imganes/fondo_superjunior.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor en cuadrícula */
+.container {
+    display: grid;
+    gap: 30px;
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    justify-items: center;
+    /* centra los recuadros */
+}
+
+/* PC grandes */
+@media (min-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        /* sigue en 2 columnas centradas */
+        max-width: 1000px;
+    }
+}
+
+/* Responsive extra en móviles */
+@media (max-width: 200px) {
+    body {
+        display: block;
+        /* ✅ permite que el contenido fluya */
+        align-items: initial;
+        justify-content: initial;
+        overflow-y: auto;
+        /* ✅ activa scroll vertical */
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card h3 {
+        font-size: 16px;
+    }
+}
+
+/* Recuadros */
+.card {
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(11, 156, 240, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    background: rgba(11, 156, 240, 0.6);
+    /* verde translúcido */
+    backdrop-filter: blur(6px);
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    /* controla el tamaño máximo */
+}
+
+/* Hover */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(11, 156, 240, 0.6);
+}
+
+/* Fuente especial */
+@font-face {
+    font-family: "JustRightGOT7";
+    src: url("fonts/JustRightGOT7.woff2") format("woff2"),
+        url("fonts/JustRightGOT7.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Títulos */
+.card h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    font-family: 'Specify Extra Expanded Black', 'Grillmaster Expanded Extra Bold', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Activo solo cuando se abre */
+.card.active .card-content {
+    display: block;
+}
+
+/* 🔥 Ajuste definitivo para que la imagen se adapte al recuadro */
+.card .card-content {
+    width: 100%;
+    height: 250px;
+    /* tamaño fijo */
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.card .card-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* rellena el espacio sin deformar */
+    display: block;
+}
+
+/* Video e imágenes */
+.card video,
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    border-radius: 12px;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+/* Botones carrusel */
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carousel .prev {
+    left: 10px;
+}
+
+.carousel .next {
+    right: 10px;
+}
+
+/* Contenedor del botón */
+.volver-container {
+    grid-column: 1 / -1;
+    /* ocupa todo el ancho */
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Botón volver */
+.volver-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: rgba(11, 156, 240, 0.66);
+    color: white;
+    font-weight: bold;
+    font-family: 'Specify Extra Expanded Black', 'Grillmaster Expanded Extra Bold', sans-serif;
+    font-size: 22px;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(11, 156, 240, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.volver-btn:hover {
+    box-shadow: 0 10px 30px rgba(11, 156, 240, 0.6);
+}
